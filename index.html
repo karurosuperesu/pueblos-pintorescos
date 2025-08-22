@@ -1,34 +1,25 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>𝐏𝐔𝐄𝐁𝐋𝐎𝐒 𝐏𝐈𝐍𝐓𝐎𝐑𝐄𝐒𝐂𝐎𝐒 𝐘 𝐃𝐄𝐋 𝐒𝐀𝐁𝐎𝐑</title>
-
+  <title>Pueblos Pintorescos y del Sabor</title>
   <style>
-        body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;}
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      /* Estilos generales */
       background: #fafafa;
       color: #333;
     }
-    /* Estilos del encabezado LETRAS */
     header {
-      background: #10c2b3;
-      color: rgb(0, 0, 0);
-      padding: 20px 20px;
+      background: #2d6a4f;
+      color: white;
+      padding: 15px 20px;
       text-align: center;
       position: relative;
-      padding-left: 150px;
+      padding-left: 140px;
     }
-
     header img {
       position: absolute;
       left: 40px;
@@ -39,12 +30,12 @@
       border: 3px solid white;
     }
     nav {
-      background: #15a094;
+      background: #40916c;
       padding: 10px;
       text-align: center;
     }
     nav a {
-      color: rgb(0, 0, 0);
+      color: white;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -59,8 +50,8 @@
       margin: auto;
     }
     h2 {
-      color: #2cc3ce;
-      border-bottom: 2px solid #801d1d;
+      color: #2d6a4f;
+      border-bottom: 2px solid #ccc;
       padding-bottom: 5px;
     }
     footer {
@@ -93,7 +84,7 @@
     /* Estilos para la sección de información */
     .destino {
       margin-bottom: 40px;
-      background: #02a799;
+      background: #fff;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
@@ -107,32 +98,56 @@
     }
     .imagenes img {
       width: 32%;
-      height: 200px;
+      height: auto;
+      max-height: 200px;
       object-fit: cover;
       border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    .descripcion {
-      text-align: justify;
+    .imagenes img:hover {
+      transform: scale(1.05);
     }
-    /* Estilo de contacto */
-    .contacto {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .imagenes img {
+        width: 48%;   /* 2 columnas */
+        max-height: 180px;
+      }
     }
-    .contacto ul {
-      list-style: none;
-      padding: 0;
+    @media (max-width: 480px) {
+      .imagenes img {
+        width: 100%;  /* 1 columna */
+        max-height: 220px;
+      }
     }
-    .contacto li {
-      margin: 10px 0;
-      font-size: 1.1rem;
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
     }
-    .contacto a {
-      color: #2b6cb0;
-      text-decoration: none;
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+    .lightbox span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
       font-weight: bold;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -140,8 +155,8 @@
   <header>
     <!-- Logo -->
     <img src="imagenes/logo.jpg" alt="Logo Pueblos Pintorescos">
-    <h1>𝐏𝐔𝐄𝐁𝐋𝐎𝐒 𝐏𝐈𝐍𝐓𝐎𝐑𝐄𝐒𝐂𝐎𝐒 𝐘 𝐃𝐄𝐋 𝐒𝐀𝐁𝐎𝐑</h1>
-    <p>" 𝐔𝐧 𝐕𝐢𝐚𝐣𝐞 𝐄𝐧𝐭𝐫𝐞 𝐓𝐫𝐚𝐝𝐢𝐜𝐢𝐨𝐧 𝐲 𝐒𝐚𝐛𝐨𝐫 "</p>
+    <h1>Pueblos Pintorescos y del Sabor</h1>
+    <p>UN VIAJE ENTRE TRADICION Y SABOR</p>
   </header>
 
   <nav>
@@ -151,15 +166,13 @@
     <a href="#vision">Visión</a>
     <a href="#valores">Valores</a>
     <a href="#informacion">Información</a>
-    <a href="#contacto">Contacto</a>
   </nav>
 
   <section id="bienvenida">
     <h2>Bienvenida</h2>
     <p>
       Bienvenidos a <strong>Pueblos Pintorescos y del Sabor</strong>.
-      Descubre una experiencia única por medio de la información digital que une la belleza visual de nuestros pueblos con la riqueza culinaria que define la esencia salvadoreña. Este destino turístico ha sido diseñado para que recorras encantadores destinos llenos de historia, colores vibrantes, arquitectura colonial y expresiones culturales auténticas.
-      Una oportunidad para conectar con nuestras raíces, degustar los sabores tradicionales que han pasado de generación en generac
+      Descubre una experiencia única por medio de la información digital que une la belleza visual de nuestros pueblos con la riqueza culinaria que define la esencia salvadoreña.
     </p>
   </section>
 
@@ -173,7 +186,7 @@
   <section id="mision">
     <h2>🤝 MISION:</h2>
     <p>
-      Informar, inspirar y conectar a los visitantes a través de una plataforma digital que resalte la riqueza cultural, visual y gastronómica de los pueblos pintorescos de El Salvador, utilizando contenido atractivo, accesible y auténtico que impulse el turismo local y fortalezca el orgullo nacional
+      Informar, inspirar y conectar a los visitantes a través de una plataforma digital que resalte la riqueza cultural, visual y gastronómica de los pueblos pintorescos de El Salvador, utilizando contenido atractivo, accesible y auténtico que impulse el turismo local y fortalezca el orgullo nacional.
     </p>
   </section>
 
@@ -187,15 +200,11 @@
   <section id="valores">
     <h2>⭐ VALORES:</h2>
     <ul>
-      <li>
-        Valoramos y promovemos la verdadera esencia cultural y gastronómica de nuestros pueblos, respetando sus tradiciones, costumbres y formas de vida.
-        Identidad Cultural:
-        Impulsamos el orgullo por nuestras raíces, celebrando la historia, el arte, la arquitectura y la cocina que nos definen como salvadoreños.
-      </li> 
+      <li>Identidad Cultural y gastronómica</li>
       <li>Autenticidad</li>
       <li>Respeto</li>
       <li>Compromiso</li>
-      <li>Identidad cultural</li>
+      <li>Tradición</li>
     </ul>
   </section>
 
@@ -223,7 +232,7 @@
         <img src="imagenes/apaneca3.jpg" alt="Apaneca 3">
       </div>
       <p class="descripcion">
-        Famoso por sus coloridos murales, calles empedradas y ambiente cultural...
+        Reconocido por su clima fresco, aventura y tradición cafetalera.
       </p>
     </div>
 
@@ -235,15 +244,15 @@
         <img src="imagenes/ataco3.jpg" alt="Ataco 3">
       </div>
       <p class="descripcion">
-        Reconocido por su clima fresco y actividades como los laberintos de cipreses y el cultivo de café. Un lugar perfecto para los amantes de la naturaleza y la aventura.
+        Reconocido por sus murales coloridos, festivales culturales y su atmósfera bohemia.
       </p>
     </div>
 
     <div class="destino">
       <h3>Nahuizalco</h3>
       <div class="imagenes">
-        <img src="imagenes/Nahuizalco.jpg" alt="Nahuizalco">
-        <img src="imagenes/Nahuizalco2.jpg" alt="Nahuizalco2">
+        <img src="imagenes/Nahuizalco.jpg" alt="Nahuizalco 1">
+        <img src="imagenes/Nahuizalco2.jpg" alt="Nahuizalco 2">
         <img src="imagenes/Nahuizalco3.jpg" alt="Nahuizalco 3">
       </div>
       <p class="descripcion">
@@ -252,24 +261,18 @@
     </div>
   </section>
 
-  <!-- Nueva sección de contacto -->
-  <section id="contacto" class="contacto">
-    <h2>📞 Contacto</h2>
-    <p>Para más información, puedes comunicarte con nosotros:</p>
-    <ul>
-      <li>📍 <strong>Ubicación:</strong> Ahuachapán, El Salvador</li>
-      <li>🔴 <strong>Instagram:</strong> <a href="https://www.instagram.com/pueblospintorescos_y_del_sabor" target="_blank">@pueblospintorescos_y_del_sabor</a></li>
-      <li>🔵 <strong>Teléfono:</strong> <a href="tel:+50375689802">75689802</a></li>
-      <li>🟢 <strong>Email:</strong> <a href="mailto:pueblospintorescos111@gmail.com">pueblospintorescos111@gmail.com</a></li>
-    </ul>
-  </section>
-
   <footer>
     <p>&copy; 2025 UN VIAJE ENTRE TRADICION Y SABOR | Todos los derechos reservados</p>
   </footer>
 
   <!-- Botón de volver arriba -->
   <button onclick="scrollToTop()" id="scrollTopBtn">↑</button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagen grande">
+  </div>
 
   <script>
     // Mostrar botón cuando el usuario baje
@@ -285,6 +288,22 @@
     // Función para volver arriba
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Lightbox
+    const images = document.querySelectorAll(".imagenes img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
     }
   </script>
 </body>
