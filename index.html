@@ -29,21 +29,38 @@
       border-radius: 50%;
       border: 3px solid white;
     }
+    header h1 {
+      font-size: 1.5rem; /* tamaño más pequeño para que se vea bien en móvil */
+      margin: 5px 0;
+    }
+    header p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
     nav {
       background: #40916c;
-      padding: 10px;
       text-align: center;
       display: none; /* oculto por defecto (menú hamburguesa) */
+      flex-direction: column;
+      position: fixed;
+      top: 80px; /* justo debajo del header */
+      right: 0;
+      width: 200px;
+      z-index: 1000;
+      border-radius: 0 0 0 10px;
+      box-shadow: -2px 2px 6px rgba(0,0,0,0.2);
     }
     nav a {
+      display: block;
+      padding: 12px;
       color: white;
-      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.3s;
     }
     nav a:hover {
-      color: #ffe066;
+      background: #2d6a4f;
     }
     /* Botón hamburguesa */
     .hamburger {
@@ -55,6 +72,7 @@
       border: none;
       color: white;
       cursor: pointer;
+      z-index: 1100;
     }
     section {
       padding: 40px 20px;
@@ -111,7 +129,7 @@
   <header>
     <!-- Logo -->
     <img src="imagenes/logo.jpg" alt="Logo Pueblos Pintorescos">
-    <h1>𝐏𝐔𝐄𝐁𝐋𝐎𝐒 𝐏𝐈𝐍𝐓𝐎𝐑𝐄𝐒𝐂𝐎𝐒 𝐘 𝐃𝐄𝐋 𝐒𝐀𝐁𝐎𝐑r</h1>
+    <h1>𝐏𝐔𝐄𝐁𝐋𝐎𝐒 𝐏𝐈𝐍𝐓𝐎𝐑𝐄𝐒𝐂𝐎𝐒 𝐘 𝐃𝐄𝐋 𝐒𝐀𝐁𝐎𝐑</h1>
     <p>UN VIAJE ENTRE TRADICION Y SABOR</p>
     <!-- Botón hamburguesa -->
     <button class="hamburger" onclick="toggleMenu()">☰</button>
@@ -210,7 +228,7 @@
     <p>Si deseas más información, contáctanos:</p>
     <ul>
       <li><a href="https://wa.me/50375689802" target="_blank" rel="noopener">WhatsApp</a></li>
-      <li><a href="pueblospintorescos111@gmail.com">Correo electrónico</a></li>
+      <li><a href="mailto:pueblospintorescos111@gmail.com">Correo electrónico</a></li>
     </ul>
   </section>
 
@@ -225,7 +243,7 @@
     // Menú hamburguesa
     function toggleMenu() {
       const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
 
     // Mostrar botón cuando el usuario baje
@@ -245,6 +263,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
